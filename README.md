@@ -55,8 +55,6 @@ A Python-based Hospital Management System built with OOP and SQLite.
 
 ├── logger.py # Logging setup
 
-├── migrationscript.py  #One-time migration script
-
 ├── hospital.log # Log file (created automatically)
 
 └── hospital_database.db # SQLite database (created automatically)
