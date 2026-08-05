@@ -40,15 +40,25 @@ A Python-based Hospital Management System built with OOP and SQLite.
 ## Project Structure
 
 ├── main.py # Entry point
+
 ├── Patient.py # Patient class
+
 ├── Doctor.py # Doctor class
+
 ├── hospital.py # Hospital class (main controller)
+
 ├── HosptalDatabase.py # SQLite database operations
+
 ├── utility.py # Helper functions
+
 ├── CustomExceptions.py # Custom exceptions
+
 ├── logger.py # Logging setup
+
 ├── migrationscript.py # One-time migration script
+
 ├── hospital.log # Log file (created automatically)
+
 └── hospital_database.db # SQLite database (created automatically)
 
 ---
