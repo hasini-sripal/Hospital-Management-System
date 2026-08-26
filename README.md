@@ -28,6 +28,7 @@ A Python-based Hospital Management System built with OOP and SQLite.
 
 ### Logging
 - All add, update, and delete actions are logged to `hospital.log` with timestamps
+- Performance management with @timer decorator
 
 ---
 
@@ -37,27 +38,33 @@ A Python-based Hospital Management System built with OOP and SQLite.
 - No external libraries needed (uses built-in sqlite3)
 
 ---
+## Configuration
+Create a config.json file:
+{
+    "database": "hospital_database.db",
+    "log_file": "hospital.log",
+    "max_input_tries": 5,
+    "hospital_name": "City Hospital"
+}
+
+---
 ## Project Structure
 
-├── main.py # Entry point
-
-├── Patient.py # Patient class
-
-├── Doctor.py # Doctor class
-
-├── hospital.py # Hospital class (main controller)
-
-├── HosptalDatabase.py # SQLite database operations
-
-├── utility.py # Helper functions
-
-├── CustomExceptions.py # Custom exceptions
-
-├── logger.py # Logging setup
-
-├── hospital.log # Log file (created automatically)
-
-└── hospital_database.db # SQLite database (created automatically)
+├── main.py                # Main entry point & menu system
+├── models.py              # Patient & Doctor business logic
+├── HospitalDatabase.py    # Database operations
+├── utility.py             # Helper functions & decorators
+├── CustomExceptions.py    # Custom exception classes
+├── config_loader.py       # Configuration loader
+├── logger.py              # Logging setup
+├── reports.py             # Excel report generation
+├── migration.py           # CSV import script
+├── config.json            # Configuration file
+├── hospital_database.db   # SQLite database (auto-created)
+├── hospital.log           # Application log file (auto-created)
+├── patient_report.xlsx    # Generated report
+├── doctor_report.xlsx     # Generated report
+├── summary_workbook.xlsx  # Generated report
 
 ---
 
@@ -65,7 +72,10 @@ A Python-based Hospital Management System built with OOP and SQLite.
 
 1. Clone or download the project files
 
-2. Ensure all files are in the same folder:
+2. Install dependencies(for Excel reports)
+   pip install openpyxl
+      
+3. Ensure all files are in the same folder:
    - `models.py`
    - `HospitalDatabase.py`
    - `utility.py`
@@ -77,7 +87,10 @@ A Python-based Hospital Management System built with OOP and SQLite.
    - `Patient.py`
    - `Doctor.py`
    - `hospital.log`
+   - `reports.py`
+   - `config_loader.py`
 
-3. Run the program:
+4. Run the program:
    ```bash
    python main.py
+
