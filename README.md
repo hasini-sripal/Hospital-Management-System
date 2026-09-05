@@ -59,20 +59,35 @@ Create a config.json file:
 ## Project Structure
 
 ├── main.py                # Main entry point & menu system
+
 ├── models.py              # Patient & Doctor business logic
+
 ├── HospitalDatabase.py    # Database operations
+
 ├── utility.py             # Helper functions & decorators
+
 ├── CustomExceptions.py    # Custom exception classes
+
 ├── config_loader.py       # Configuration loader
+
 ├── logger.py              # Logging setup
+
 ├── reports.py             # Excel report generation
+
 ├── migration.py           # CSV import script
+
 ├── test_hospital.py       # Unit tests
+
 ├── config.json            # Configuration file
+
 ├── hospital_database.db   # SQLite database (auto-created)
+
 ├── hospital.log           # Application log file (auto-created)
+
 ├── patient_report.xlsx    # Generated report
+
 ├── doctor_report.xlsx     # Generated report
+
 └── summary_workbook.xlsx  # Generated report
 
 ---
