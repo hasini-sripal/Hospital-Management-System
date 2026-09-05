@@ -30,12 +30,19 @@ A Python-based Hospital Management System built with OOP and SQLite.
 - All add, update, and delete actions are logged to `hospital.log` with timestamps
 - Performance management with @timer decorator
 
+### Excel Reports
+- The system generates professional Excel reports with auto-sized columns, bold headers, and center-aligned formatting.
+- Reports generated: patient_report.xlsx, doctor_report.xlsx, summary_workbook.xlsx
+
+### Unit Testing
+- 27 unit tests covering positive and negative tests
+
 ---
 
 ## Requirements
 
 - Python 3.x
-- No external libraries needed (uses built-in sqlite3)
+- openpyxl (for Excel reports)
 
 ---
 ## Configuration
@@ -48,6 +55,7 @@ Create a config.json file:
 }
 
 ---
+
 ## Project Structure
 
 ├── main.py                # Main entry point & menu system
@@ -59,12 +67,13 @@ Create a config.json file:
 ├── logger.py              # Logging setup
 ├── reports.py             # Excel report generation
 ├── migration.py           # CSV import script
+├── test_hospital.py       # Unit tests
 ├── config.json            # Configuration file
 ├── hospital_database.db   # SQLite database (auto-created)
 ├── hospital.log           # Application log file (auto-created)
 ├── patient_report.xlsx    # Generated report
 ├── doctor_report.xlsx     # Generated report
-├── summary_workbook.xlsx  # Generated report
+└── summary_workbook.xlsx  # Generated report
 
 ---
 
@@ -72,9 +81,10 @@ Create a config.json file:
 
 1. Clone or download the project files
 
-2. Install dependencies(for Excel reports)
+2. Install dependencies(for Excel reports):
+   ```bash
    pip install openpyxl
-      
+
 3. Ensure all files are in the same folder:
    - `models.py`
    - `HospitalDatabase.py`
@@ -94,3 +104,10 @@ Create a config.json file:
    ```bash
    python main.py
 
+---
+
+## Testing
+
+1. Run all the tests:
+   ```bash
+   python -m unittest test_hospital.py -v
