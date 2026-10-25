@@ -120,7 +120,7 @@ Create a config.json file:
    - `reports.py`
    - `config_loader.py`
    - `main_api.py`
-   - `schema.py`
+   - `schemas.py`
 
 4. Run the program:
    ```bash
