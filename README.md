@@ -34,15 +34,22 @@ A Python-based Hospital Management System built with OOP and SQLite.
 - The system generates professional Excel reports with auto-sized columns, bold headers, and center-aligned formatting.
 - Reports generated: patient_report.xlsx, doctor_report.xlsx, summary_workbook.xlsx
 
-### Unit Testing
-- 27 unit tests covering positive and negative tests
 
+### REST API (Task 4)
+- FastAPI Framework: Full CRUD REST API for both Patients and Doctors.
+
+- Pydantic Validation: Strict request body validation (returns 422 Unprocessable Entity for invalid data).
+
+- Advanced Error Handling: Returns 404 Not Found for missing IDs, 400 Bad Request for invalid search ranges, and reuses existing business logic for age/name validation.
+
+- Swagger UI: Interactive auto-generated API documentation available at /docs.
 ---
 
 ## Requirements
 
 - Python 3.x
 - openpyxl (for Excel reports)
+- fastapi 
 
 ---
 ## Configuration
@@ -58,11 +65,15 @@ Create a config.json file:
 
 ## Project Structure
 
-├── main.py                # Main entry point & menu system
+├── main.py                # Terminal UI entry point (CLI)
 
-├── models.py              # Patient & Doctor business logic
+├── main_api.py            # FastAPI application (REST API)
 
-├── HospitalDatabase.py    # Database operations
+├── schemas.py             # Pydantic models for API validation
+
+├── models.py              # Patient & Doctor logic
+
+├── HospitalDatabase.py    # SQLite database operations
 
 ├── utility.py             # Helper functions & decorators
 
@@ -74,21 +85,15 @@ Create a config.json file:
 
 ├── reports.py             # Excel report generation
 
-├── migration.py           # CSV import script
+├── test_hospital.py       # Unit tests (27 tests)
 
-├── test_hospital.py       # Unit tests
+├── migration.py           # CSV import script
 
 ├── config.json            # Configuration file
 
 ├── hospital_database.db   # SQLite database (auto-created)
 
-├── hospital.log           # Application log file (auto-created)
-
-├── patient_report.xlsx    # Generated report
-
-├── doctor_report.xlsx     # Generated report
-
-└── summary_workbook.xlsx  # Generated report
+└── hospital.log           # Application log file (auto-created)
 
 ---
 
@@ -98,7 +103,7 @@ Create a config.json file:
 
 2. Install dependencies(for Excel reports):
    ```bash
-   pip install openpyxl
+   pip install fastapi uvicorn openpyxl
 
 3. Ensure all files are in the same folder:
    - `models.py`
@@ -114,6 +119,8 @@ Create a config.json file:
    - `hospital.log`
    - `reports.py`
    - `config_loader.py`
+   - `main_api.py`
+   - `schema.py`
 
 4. Run the program:
    ```bash
@@ -126,3 +133,20 @@ Create a config.json file:
 1. Run all the tests:
    ```bash
    python -m unittest test_hospital.py -v
+
+## REST API
+1. To start the API server
+   ```bash
+   python -m uvicorn main_api:app --reload
+   
+- Once running, open your browser and go to:
+- http://127.0.0.1:8000/docs to access the Swagger UI where you can test all endpoints.
+
+## Postman Testing
+
+### To test the API manually:
+
+- Import the Hospital Management System API.postman_collection.json file into Postman.
+- Ensure the FastAPI server is running.
+- Execute the 13 pre-configured requests to verify all status codes and responses.
+
